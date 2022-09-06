@@ -175,14 +175,14 @@ def run(application_name: str,
                 if rc != STATUS_OK:
                     raise ScreencaptureEx(f"Error: screencapture output: {output}")
 
-                ##if temp_dir:
-                ##    chdir(temp_dir)
-                ##    si = scandir()
-                ##    for theFile in si:
-                ##        if theFile.is_file():
-                ##            remove(theFile.name)
-                ##    chdir(current_dir)
-                ##    rmdir(temp_dir)
+                if temp_dir:
+                    chdir(temp_dir)
+                    si = scandir()
+                    for theFile in si:
+                        if theFile.is_file():
+                            remove(theFile.name)
+                    chdir(current_dir)
+                    rmdir(temp_dir)
 
 
         exit(STATUS_OK)
