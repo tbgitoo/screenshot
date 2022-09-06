@@ -11,6 +11,7 @@ from os import stat
 from os import rmdir
 from os import scandir
 from os import remove
+from PIL import Image
 
 import click
 
@@ -166,6 +167,8 @@ def run(application_name: str,
                 length_s=time()-timenow
                 frame_rate=fname/length_s
                 print("Frame rate: ",frame_rate," frames per second\n")
+                im = Image.open(temp_dir+"/0000.png")
+                print(im.size)
                 ffmpeg_command="ffmpeg -y -r "+str(frame_rate)+ " -i %04d.png "
                 ffmpeg_command=ffmpeg_command+" -vf scale=2484:952 -vf fps=24 "+current_dir+"/0.mpg"
                 print("ffmpg command:\n",ffmpeg_command)
