@@ -39,7 +39,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts':
-            [f'{CMD} = screenshot.mac.capture:run']
+            [f'{CMD} = screenshot.screencapture:run']
     },
     #
     # ## app nonsense
